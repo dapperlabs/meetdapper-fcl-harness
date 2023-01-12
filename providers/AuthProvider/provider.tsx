@@ -19,7 +19,7 @@ const Provider = ({ children }: Props) => {
     return currentUser().subscribe(async (user) => {
       const accountProofService = getAccountProofService(user.services);
       const openIDService = getOpenIDService(user.services);
-     
+
       if (accountProofService) {
         const response = await fetch('/api/account-proof', {
           method: 'POST',

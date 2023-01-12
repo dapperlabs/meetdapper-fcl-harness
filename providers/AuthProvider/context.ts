@@ -8,6 +8,7 @@ export type AuthContext = {
   provider: WalletProvider | undefined;
   address?: string | null;
   openid: Record<string, any> | null;
+  isAuthenticating: boolean;
 };
 
 export const defaultContext: AuthContext = {
@@ -16,6 +17,7 @@ export const defaultContext: AuthContext = {
   provider: undefined,
   address: '',
   openid: null,
+  isAuthenticating: false,
 };
 
 export const StateContext = createContext<AuthContext>(defaultContext);

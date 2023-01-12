@@ -17,7 +17,7 @@ async function decrypt(token: string) {
 }
 
 async function verify(claims: string) {
-  let payload = {};
+  let payload = '';
 
   try {
     const result = await JWS.createVerify().verify(claims, {
@@ -42,7 +42,7 @@ export default async function openid(
 
     const payload = await verify(jwtToken);
 
-    res.status(200).json(payload);
+    res.status(200).json(JSON.parse(payload));
   } catch (err: any) {
     console.log(err);
     res.status(400).json({ error: err.message });
