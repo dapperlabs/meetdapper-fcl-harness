@@ -46,9 +46,7 @@ declare module '@onflow/fcl' {
 
   export type CurrentUser = {
     snapshot: () => Promise<CurrentUserObject>;
-    subscribe: (
-      cb: (currentUser: CurrentUserObject | null) => void,
-    ) => VoidFunction;
+    subscribe: (cb: (currentUser: CurrentUserObject) => void) => VoidFunction;
     authorization: AuthorizationObject;
     unauthenticate: VoidFunction;
   };
@@ -133,4 +131,18 @@ declare module '@onflow/fcl' {
 
   export const arg: any;
   export const args: any;
+
+  export type AccountProofData = {
+    address: string;
+    nonce: string;
+    signatures: Record<string, any>[];
+  };
+
+  export const AppUtils: {
+    verifyAccountProof: (
+      appIdentifier: string,
+      accountProofData: AccountProofData,
+      opts?: { fclCryptoContract: string },
+    ) => Promise<boolean>;
+  };
 }

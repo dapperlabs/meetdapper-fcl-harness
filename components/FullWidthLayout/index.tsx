@@ -1,9 +1,7 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import Header from '../Header';
 
-interface Props {
-  children: ReactNode;
-}
+type Props = React.PropsWithChildren<{}>;
 
 const FullWidthLayout = ({ children }: Props) => {
   return (

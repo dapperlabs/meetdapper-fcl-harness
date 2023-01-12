@@ -1,9 +1,9 @@
 import { Link, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { ComponentProps, memo } from 'react';
+import { memo } from 'react';
 
-export type LinkProps = Omit<ComponentProps<typeof Link>, 'href'> & {
-  href: ComponentProps<typeof NextLink>['href'];
+export type LinkProps = Omit<React.ComponentProps<typeof Link>, 'href'> & {
+  href: React.ComponentProps<typeof NextLink>['href'];
 };
 
 const CustomLink = ({ href, ...rest }: LinkProps) => (

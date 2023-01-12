@@ -4,7 +4,8 @@ import { AuthContext } from './context';
 
 export type AuthContextAction =
   | ReducerAction<'setCurrentUser', CurrentUserObject | null>
-  | ReducerAction<'setFLOWBalance', string>;
+  | ReducerAction<'setOpenIdData', Record<string, any> | null>
+  | ReducerAction<'setIsAuthenticating', boolean>;
 
 export const reducer = produce(
   (state: AuthContext, action: AuthContextAction) => {
@@ -19,8 +20,12 @@ export const reducer = produce(
 
         return state;
 
-      case 'setFLOWBalance':
-        state.balance = action.data;
+      case 'setIsAuthenticating':
+        state.isAuthenticating = action.data;
+
+        return state;
+      case 'setOpenIdData':
+        state.openid = action.data;
 
         return state;
     }
