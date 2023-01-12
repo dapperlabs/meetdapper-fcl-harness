@@ -1,4 +1,4 @@
-import AuthProvider from "./AuthProvider/provider";
+import AuthProvider from './AuthProvider/provider';
 
 type Props = React.PropsWithChildren<{}>;
 

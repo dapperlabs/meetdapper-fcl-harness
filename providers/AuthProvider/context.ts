@@ -7,7 +7,7 @@ export type AuthContext = {
   isLoggedIn: boolean;
   provider: WalletProvider | undefined;
   address?: string | null;
-  balance: string;
+  openid: Record<string, any> | null;
 };
 
 export const defaultContext: AuthContext = {
@@ -15,7 +15,7 @@ export const defaultContext: AuthContext = {
   isLoggedIn: false,
   provider: undefined,
   address: '',
-  balance: '',
+  openid: null,
 };
 
 export const StateContext = createContext<AuthContext>(defaultContext);

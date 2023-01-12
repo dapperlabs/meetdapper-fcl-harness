@@ -10,24 +10,24 @@ import {
   IconButton,
   Avatar,
   Center,
-} from "@chakra-ui/react";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { memo } from "react";
-import { FaPowerOff } from "react-icons/fa";
-import { useAuth } from "hooks/useAuth";
+} from '@chakra-ui/react';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { memo } from 'react';
+import { FaPowerOff } from 'react-icons/fa';
+import { useAuth } from 'hooks/useAuth';
 
 const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isLoggedIn, provider, address, logIn, logOut } = useAuth();
 
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} as="nav">
+    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} as="nav">
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box>{process.env.NEXT_PUBLIC_APP_NAME}</Box>
 
         <Flex alignItems="center" gap={2}>
           <Button onClick={toggleColorMode} size="sm">
-            {colorMode === "light" ? <FaMoon /> : <FaSun />}
+            {colorMode === 'light' ? <FaMoon /> : <FaSun />}
           </Button>
 
           {isLoggedIn && (
@@ -42,11 +42,11 @@ const Nav = () => {
               >
                 <Avatar
                   size="sm"
-                  name={provider?.name ?? "Dapp"}
-                  src={provider?.icon ?? "#"}
+                  name={provider?.name ?? 'Dapp'}
+                  src={provider?.icon ?? '#'}
                 />
               </MenuButton>
-              <MenuList alignItems={"center"} py={4}>
+              <MenuList alignItems={'center'} py={4}>
                 <Center pt={2}>
                   <p>{address}</p>
                 </Center>

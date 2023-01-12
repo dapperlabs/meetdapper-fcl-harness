@@ -1,9 +1,9 @@
-import { useCallback } from "react";
-import { authenticate, unauthenticate } from "@onflow/fcl";
-import { useAuthContext } from "providers/AuthProvider/context";
+import { useCallback } from 'react';
+import { authenticate, unauthenticate } from '@onflow/fcl';
+import { useAuthContext } from 'providers/AuthProvider/context';
 
 export function useAuth() {
-  const [{ isLoggedIn, provider, address, balance }] = useAuthContext();
+  const [{ isLoggedIn, provider, address }] = useAuthContext();
 
   const logIn = useCallback(async () => {
     return await authenticate();
@@ -13,5 +13,5 @@ export function useAuth() {
     return unauthenticate();
   }, []);
 
-  return { logIn, logOut, isLoggedIn, provider, address, balance };
+  return { logIn, logOut, isLoggedIn, provider, address };
 }
