@@ -18,8 +18,8 @@ const Provider = ({ children }: Props) => {
   useEffect(() => {
     return currentUser().subscribe(async (user) => {
       const accountProofService = getAccountProofService(user.services);
-      const openIDService = getAccountProofService(user.services);
-
+      const openIDService = getOpenIDService(user.services);
+     
       if (accountProofService) {
         const response = await fetch('/api/account-proof', {
           method: 'POST',

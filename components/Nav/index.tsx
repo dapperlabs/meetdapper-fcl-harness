@@ -40,11 +40,7 @@ const Nav = () => {
                 minW={0}
                 title="Dapper Wallet"
               >
-                <Avatar
-                  size="sm"
-                  name={provider?.name ?? 'Dapp'}
-                  src={provider?.icon ?? '#'}
-                />
+                <Avatar size="sm" name={provider?.name ?? 'Dapp'} src={'#'} />
               </MenuButton>
               <MenuList alignItems={'center'} py={4}>
                 <Center pt={2}>

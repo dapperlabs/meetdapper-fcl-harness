@@ -3,7 +3,7 @@ import { authenticate, unauthenticate } from '@onflow/fcl';
 import { useAuthContext } from 'providers/AuthProvider/context';
 
 export function useAuth() {
-  const [{ isLoggedIn, provider, address }] = useAuthContext();
+  const [context] = useAuthContext();
 
   const logIn = useCallback(async () => {
     return await authenticate();
@@ -13,5 +13,5 @@ export function useAuth() {
     return unauthenticate();
   }, []);
 
-  return { logIn, logOut, isLoggedIn, provider, address };
+  return { logIn, logOut, ...context };
 }
